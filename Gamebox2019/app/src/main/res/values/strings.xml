@@ -2,9 +2,9 @@
     <string name="app_name">Gamebox2019</string>
     <string name="credits">Created by:</string>
     <string name="oceane">MERLO Océane</string>
+    <string name="marieme">NDIAYE Marième</string>
     <string name="baptiste">LLORET Baptiste</string>
     <string name="paul">PUTIER Paul</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
