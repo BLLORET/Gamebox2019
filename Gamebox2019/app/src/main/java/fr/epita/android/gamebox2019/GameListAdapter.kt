@@ -1,7 +1,7 @@
 package fr.epita.android.gamebox2019
 
-import android.content.ClipData
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,6 +50,16 @@ class GameListAdapter(
             .with(rowView)
             .load(currentItem.picture)
             .into(rowView.findViewById<ImageView>(R.id.picture_game))
+
+        Log.w("name: ", currentItem.name)
+        Log.w("bool: ", currentItem.playable.toString())
+        if (currentItem.playable) {
+            rowView.findViewById<ImageView>(R.id.picture_playable).setImageResource(R.drawable.playable)
+        } else {
+            rowView.findViewById<ImageView>(R.id.picture_playable).setImageResource(R.drawable.not_playable)
+        }
+
+
         return rowView
     }
 
