@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface IGame {
     @GET("game/list")
-    fun getAllGames() : Call<List<DGame>>
+    fun getAllGames() : Call<MutableList<DGame>>
 }

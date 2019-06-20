@@ -13,8 +13,8 @@
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             android:id="@+id/empty_list_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/empty_list"
             android:visibility="gone"/>
 
@@ -23,8 +23,8 @@
                                                 android:orientation="horizontal"
                                                 app:layout_constraintGuide_percent="0.8"/>
     <ListView
-            android:layout_width="395dp"
-            android:layout_height="715dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +32,9 @@
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline" android:layout_marginBottom="8dp"
             android:id="@+id/list_games"
+            android:divider="#2196F3"
+            android:dividerHeight="1dp"
+            tools:listitem="@layout/game_item"
     />
 
 
