@@ -8,22 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.GsonBuilder
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_list_game.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- *
- */
 class ListGameFragment : Fragment() {
 
     override fun onCreateView(
@@ -51,19 +43,23 @@ class ListGameFragment : Fragment() {
         // an object implementing the interface to the WebService
         val service: IGame = retrofit.create(IGame::class.java)
 
-        var gamesCallback: Callback<List<DGame>> = object : Callback<List<DGame>> {
+        var gamesCallback: Callback<MutableList<DGame>> = object : Callback<MutableList<DGame>> {
 
-            override fun onFailure(call: Call<List<DGame>>, t: Throwable) {
-                Log.w("Game", "Error by loading games.")
+            override fun onFailure(call: Call<MutableList<DGame>>, t: Throwable) {
+                list_games.emptyView = empty_list_view
+                Log.w("Game", "Error by loading games because you are not connected to internet.")
             }
 
-            override fun onResponse(call: Call<List<DGame>>, response: Response<List<DGame>>) {
+            override fun onResponse(call: Call<MutableList<DGame>>, response: Response<MutableList<DGame>>) {
+
                 if (response.code() == 200) {
-                    var data: List<DGame>? = response.body()
+                    var data: MutableList<DGame>? = response.body()
                     if (data != null) {
-                        //data = data.shuffled()
-                        //list_games. = data;
+                        data = data.shuffled() as MutableList<DGame>
+                        list_games.adapter = GameListAdapter(activity as MainActivity, data)
                     }
+                } else {
+                    list_games.emptyView = empty_list_view
                 }
             }
         }
