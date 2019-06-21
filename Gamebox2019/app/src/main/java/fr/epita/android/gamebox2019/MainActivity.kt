@@ -2,17 +2,18 @@ package fr.epita.android.gamebox2019
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentManager
 
 class MainActivity : AppCompatActivity() {
 
-    private fun printCredits() {
+    public fun printCredits() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.main_container, CreditsFragment())
             .commit()
     }
 
-    private fun printListGame() {
+    public fun printListGame() {
         supportFragmentManager
             .beginTransaction()
             .add(R.id.main_container, ListGameFragment())
@@ -25,6 +26,11 @@ class MainActivity : AppCompatActivity() {
 
         printCredits()
         printListGame()
+        /*supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_container, ScoreListFragment())
+            .add(R.id.main_container, returnToMenuFragment())
+            .commit()*/
 
 
         /* TODO: Remove this */

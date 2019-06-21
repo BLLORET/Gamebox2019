@@ -8,6 +8,9 @@ interface IGame {
     @GET("game/list")
     fun getAllGames() : Call<MutableList<DGame>>
 
+    @GET("game/scores")
+    fun getAllScores(): Call<MutableList<DScore>>
+
     @GET("api/game/details")
     fun getGameDetail(@Query(value="game_id") game_id: Int): Call<DGameDetail>
 
