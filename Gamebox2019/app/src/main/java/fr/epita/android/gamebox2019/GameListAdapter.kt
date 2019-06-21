@@ -51,8 +51,8 @@ class GameListAdapter(
             .load(currentItem.picture)
             .into(rowView.findViewById<ImageView>(R.id.picture_game))
 
-        Log.w("name: ", currentItem.name)
-        Log.w("bool: ", currentItem.playable.toString())
+        /*Log.w("name: ", currentItem.name)
+        Log.w("bool: ", currentItem.playable.toString())*/
         if (currentItem.playable) {
             rowView.findViewById<ImageView>(R.id.picture_playable).setImageResource(R.drawable.playable)
         } else {
