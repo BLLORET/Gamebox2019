@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.gson.GsonBuilder
@@ -42,6 +43,9 @@ class GameDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /* adjust fragment when soft keyboard appears */
+        (activity as MainActivity).window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+
         // Disable play and name fields if the game is not playable
         if (!arguments!!.getBoolean("PLAYABLE")){
             editName.isEnabled = false
