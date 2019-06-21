@@ -114,7 +114,6 @@ class HangmanPlayFragment : Fragment() {
         val id: Int = 2
 
         // API request
-        var data: String
         val baseURL = "https://androidlessonsapi.herokuapp.com/"
         val jsonConverter = GsonConverterFactory.create(GsonBuilder().create())
         val retrofit = Retrofit.Builder()
@@ -126,7 +125,6 @@ class HangmanPlayFragment : Fragment() {
         val callback = object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if (response.code() == 200) {
-                    data = response.body()!!
                     Toast.makeText(activity, "Successfully recovered games detail", Toast.LENGTH_SHORT).show()
 
                     /* FIXME: redirect to score screen once it is done */
@@ -147,6 +145,6 @@ class HangmanPlayFragment : Fragment() {
 
         val name: String = this.arguments!!.getString("playerName")!!
 
-        service.sendScoreRequest(2, status, name).enqueue(callback)
+        service.sendScoreRequest(id, status, name).enqueue(callback)
     }
 }
