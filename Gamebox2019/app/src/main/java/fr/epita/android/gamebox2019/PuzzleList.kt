@@ -32,10 +32,32 @@ class PuzzleList(private val view: View) {
         view.findViewById<ImageView>(R.id.imageView9).setImageResource(listDrawable[8])
     }
 
-    fun switchAndLoad(pos1: Int, pos2: Int) {
+    private fun switch(pos1: Int, pos2: Int){
         val tmp : Int = listDrawable[pos1]
         listDrawable[pos1] = listDrawable[pos2]
         listDrawable[pos2] = tmp
+    }
+
+    fun switchAndLoad(actualPos: Int, posLeft: Int, posRight: Int, posUp: Int, posDown: Int) {
+
+        if (listDrawable[actualPos] != R.drawable.empty) {
+            if (posLeft != -1 && listDrawable[posLeft] == R.drawable.empty) {
+                switch(actualPos, posLeft)
+            } else if (posRight != -1 && listDrawable[posRight] == R.drawable.empty) {
+                switch(actualPos, posRight)
+            } else if (posUp != -1 && listDrawable[posUp] == R.drawable.empty) {
+                switch(actualPos, posUp)
+            } else if (posDown != -1 && listDrawable[posDown] == R.drawable.empty) {
+                switch(actualPos, posDown)
+            }
+        }
         load()
+    }
+
+    fun isWin(): Boolean {
+        return listDrawable[0] == R.drawable.dog1 && listDrawable[1] == R.drawable.dog2
+                && listDrawable[2] == R.drawable.dog3 && listDrawable[3] == R.drawable.dog4
+                && listDrawable[4] == R.drawable.dog5 && listDrawable[5] == R.drawable.dog6
+                && listDrawable[6] == R.drawable.dog7 && listDrawable[7] == R.drawable.dog8
     }
 }
