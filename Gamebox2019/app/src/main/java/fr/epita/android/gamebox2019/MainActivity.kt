@@ -12,7 +12,8 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    private fun printListGame() {
+    fun printListGame() {
+        printCredits()
         supportFragmentManager
             .beginTransaction()
             .add(R.id.main_container, ListGameFragment())
@@ -29,8 +30,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        printCredits()
         printListGame()
     }
 }
