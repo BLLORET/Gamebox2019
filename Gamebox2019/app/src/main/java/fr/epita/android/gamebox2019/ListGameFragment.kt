@@ -60,8 +60,9 @@ class ListGameFragment : Fragment() {
                         list_games.setOnItemClickListener {
                                 adapterView, _, position, _ ->
                             var game : DGame = adapterView.getItemAtPosition(position) as DGame
+                            val playable : Boolean = (game.name == "Hangman" || game.name == "SlidingPuzzle")
                             // To Remove in production, the true is to test the play game until data class bug is fixed.
-                            (activity as MainActivity).getDetailFragment(game.id/*, game.playable*/, true)
+                            (activity as MainActivity).getDetailFragment(game.id/*, game.playable*/, playable)
                         }
                     }
                 } else {

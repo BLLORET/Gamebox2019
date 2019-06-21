@@ -53,7 +53,8 @@ class GameListAdapter(
 
         /*Log.w("name: ", currentItem.name)
         Log.w("bool: ", currentItem.playable.toString())*/
-        if (currentItem.playable) {
+        val playable : Boolean = (currentItem.name == "Hangman" || currentItem.name == "SlidingPuzzle")
+        if (playable) {
             rowView.findViewById<ImageView>(R.id.picture_playable).setImageResource(R.drawable.playable)
         } else {
             rowView.findViewById<ImageView>(R.id.picture_playable).setImageResource(R.drawable.not_playable)
