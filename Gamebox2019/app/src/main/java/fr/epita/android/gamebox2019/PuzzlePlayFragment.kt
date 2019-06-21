@@ -97,6 +97,10 @@ class PuzzlePlayFragment : Fragment() {
                 sendScore(true)
             }
         }
+
+        puzzle_back_menu.setOnClickListener {
+            (activity as MainActivity).printListGame()
+        }
     }
 
     fun sendScore(win: Boolean) {
