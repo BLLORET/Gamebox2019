@@ -57,6 +57,12 @@ class ListGameFragment : Fragment() {
                     if (data != null) {
                         data = data.shuffled() as MutableList<DGame>
                         list_games.adapter = GameListAdapter(activity as MainActivity, data)
+                        list_games.setOnItemClickListener {
+                                adapterView, _, position, _ ->
+                            var game : DGame = adapterView.getItemAtPosition(position) as DGame
+                            // To Remove in production, the true is to test the play game until data class bug is fixed.
+                            (activity as MainActivity).getDetailFragment(game.id/*, game.playable*/, true)
+                        }
                     }
                 } else {
                     list_games.emptyView = empty_list_view

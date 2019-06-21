@@ -19,18 +19,18 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
+    fun getDetailFragment(id: Int, playable: Boolean) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_container, GameDetailFragment.newInstance(id, playable))
+            .commit()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         printCredits()
         printListGame()
-
-
-        /* TODO: Remove this */
-        /*supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.main, GameDetailFragment.newInstance(2, true))
-            .commit()*/
     }
 }
