@@ -6,10 +6,19 @@
         android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".ScoreListFragment">
 
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.90"
+            android:id="@+id/BottomScoreGuide"
+    />
+
     <ListView
             android:id="@+id/scoreList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="@+id/BottomScoreGuide"
             android:divider="#2196F3"
             android:dividerHeight="1dp"
     />
