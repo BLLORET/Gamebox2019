@@ -4,8 +4,9 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface IGame {
-    @GET
-    fun getAllGames() : Call<List<DGame>>
+
+    @GET("game/list")
+    fun getAllGames() : Call<MutableList<DGame>>
 
     @GET("api/game/details")
     fun getGameDetail(@Query(value="game_id") game_id: Int): Call<DGameDetail>
