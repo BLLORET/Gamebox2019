@@ -6,37 +6,33 @@ import androidx.fragment.app.FragmentManager
 
 class MainActivity : AppCompatActivity() {
 
-    public fun printCredits() {
+    fun printListGame() {
+
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.main_container, CreditsFragment())
+            .replace(R.id.main_container, ListGameFragment())
+            .add(R.id.main_container, CreditsFragment())
             .commit()
     }
 
-    public fun printListGame() {
+    fun getDetailFragment(id: Int, playable: Boolean) {
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.main_container, ListGameFragment())
+            .replace(R.id.main_container, GameDetailFragment.newInstance(id, playable))
+            .commit()
+    }
+
+    fun getScoreFragment() {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_container, ScoreListFragment())
+            .add(R.id.main_container, returnToMenuFragment())
             .commit()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        printCredits()
         printListGame()
-        /*supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.main_container, ScoreListFragment())
-            .add(R.id.main_container, returnToMenuFragment())
-            .commit()*/
-
-
-        /* TODO: Remove this */
-        /*supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.main, GameDetailFragment.newInstance(2, true))
-            .commit()*/
     }
 }
