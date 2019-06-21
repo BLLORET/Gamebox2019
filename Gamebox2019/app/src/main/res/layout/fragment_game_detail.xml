@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".GameDetailFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"
+            android:id="@+id/detailGuideV"
+    />
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8"
+            android:id="@+id/detailGuideH"
+    />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/detailGuideV"
+            app:layout_constraintEnd_toEndOf="@+id/detailGuideV"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            android:text="@string/GameInfo"
+            android:textSize="30dp"
+            android:textColor="@color/cyan"
+            android:id="@+id/gameInfo"
+    />
+
+    <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintTop_toBottomOf="@+id/gameInfo"
+            app:layout_constraintEnd_toStartOf="@id/detailGuideV"
+            android:layout_marginTop="10dp"
+            android:id="@+id/image"
+    />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/image"
+            app:layout_constraintLeft_toRightOf="@id/detailGuideV"
+            android:id="@+id/name"
+            android:text="@string/name"
+    />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/image"
+            app:layout_constraintLeft_toRightOf="@id/name"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/nameObj"
+    />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintLeft_toRightOf="@id/detailGuideV"
+            android:id="@+id/type"
+            android:text="@string/type"
+    />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintLeft_toRightOf="@id/type"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/typeObj"
+    />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/type"
+            app:layout_constraintLeft_toRightOf="@id/detailGuideV"
+            android:id="@+id/nbplayer"
+            android:text="@string/nbplayer"
+    />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/type"
+            app:layout_constraintLeft_toRightOf="@id/nbplayer"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/nbplayerObj"
+    />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/nbplayer"
+            app:layout_constraintLeft_toRightOf="@id/detailGuideV"
+            android:id="@+id/year"
+            android:text="@string/year"
+    />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/nbplayer"
+            app:layout_constraintLeft_toRightOf="@id/year"
+            android:id="@+id/yearObj"
+    />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/image"
+            app:layout_constraintRight_toRightOf="@id/detailGuideV"
+            app:layout_constraintLeft_toLeftOf="@id/detailGuideV"
+            android:layout_marginTop="20dp"
+            android:paddingStart="10dp"
+            android:id="@+id/desc"
+    />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/editName"
+            app:layout_constraintTop_toTopOf="@+id/play"
+            app:layout_constraintBottom_toBottomOf="@+id/play"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/nameText"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/nameText"
+    />
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@+id/play"
+            app:layout_constraintBottom_toBottomOf="@+id/play"
+            app:layout_constraintRight_toRightOf="@id/detailGuideV"
+            app:layout_constraintLeft_toRightOf="@+id/nameText"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/playerName"
+            android:maxLength="16"
+            android:id="@+id/editName"
+    />
+
+    <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/more"
+            app:layout_constraintLeft_toRightOf="@id/detailGuideV"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/play"
+            android:id="@+id/play"
+    />
+    <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/detailGuideH"
+            app:layout_constraintLeft_toRightOf="@id/detailGuideV"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/more"
+            android:id="@+id/more"
+    />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

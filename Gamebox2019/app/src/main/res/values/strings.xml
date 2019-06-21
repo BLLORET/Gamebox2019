@@ -1,10 +1,27 @@
 <resources>
+    <!-- NAMES -->
     <string name="app_name">Gamebox2019</string>
     <string name="credits">Created by:</string>
     <string name="oceane">MERLO Océane</string>
     <string name="baptiste">LLORET Baptiste</string>
     <string name="paul">PUTIER Paul</string>
 
+    <!-- Game detail page fields -->
+    <string name="GameInfo">Game Info</string>
+    <string name="name">Name:</string>
+    <string name="type">Type:</string>
+    <string name="nbplayer">Nb players:</string>
+    <string name="year">Year:</string>
+    <string name="play">Play</string>
+    <string name="more">More info</string>
+    <string name="playerName">Player name</string>
+    <string name="nameText">Name:</string>
+    <string name="emptyLetter">_</string>
+    <string name="triedLetters">Already tried:</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="remainingTries">Remaining tries:</string>
+    <string name="tryButton">TRY</string>
+    <string name="timerText">60</string>
 </resources>
