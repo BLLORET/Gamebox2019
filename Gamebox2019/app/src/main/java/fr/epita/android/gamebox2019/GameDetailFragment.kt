@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.fragment_game_detail.*
+import kotlinx.android.synthetic.main.fragment_return_to_menu.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -97,6 +98,9 @@ class GameDetailFragment : Fragment() {
                     .replace(this@GameDetailFragment.id, HangmanPlayFragment.newInstance(name))
                     .commit()
             }
+        }
+        detailMenuButton.setOnClickListener {
+            (activity as MainActivity).printListGame()
         }
     }
 }

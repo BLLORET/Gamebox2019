@@ -2,29 +2,31 @@ package fr.epita.android.gamebox2019
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentManager
 
 class MainActivity : AppCompatActivity() {
-
-    private fun printCredits() {
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.main_container, CreditsFragment())
-            .commit()
-    }
 
     fun printListGame() {
 
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.main_container, ListGameFragment())
+            .add(R.id.main_container, CreditsFragment())
             .commit()
-        printCredits()
     }
 
     fun getDetailFragment(id: Int, playable: Boolean) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.main_container, GameDetailFragment.newInstance(id, playable))
+            .commit()
+    }
+
+    fun getScoreFragment(game: String) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_container, ScoreListFragment.newInstance(game))
+            .add(R.id.main_container, returnToMenuFragment())
             .commit()
     }
 

@@ -18,7 +18,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="#2F78CA" app:layout_constraintHorizontal_bias="0.0"
+            android:background="@color/backgroundBlue" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintTop_toTopOf="@+id/credit_guideline" app:layout_constraintVertical_bias="1.0"/>
     <TextView
             android:text="@string/credits"
@@ -60,6 +60,16 @@
             android:textColor="#FFFFFF"
             app:layout_constraintStart_toStartOf="@+id/txt_baptiste"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"/>
+    <Button
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/scoreButton"
+            app:layout_constraintLeft_toRightOf="@id/creditGuideV"
+            app:layout_constraintTop_toBottomOf="@+id/credit_guideline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/allScores"
+    />
     <androidx.constraintlayout.widget.Barrier android:layout_width="wrap_content" android:layout_height="wrap_content"
                                               android:id="@+id/barrierPaul" app:barrierDirection="top"
                                               app:constraint_referenced_ids="txt_paul"
@@ -76,5 +86,10 @@
                                               android:id="@+id/barrieroceane" app:barrierDirection="top"
                                               app:constraint_referenced_ids="txt_oceane"
                                               tools:layout_editor_absoluteY="731dp"/>
+    <androidx.constraintlayout.widget.Guideline android:layout_width="match_parent" android:layout_height="match_parent"
+                                                android:orientation="vertical"
+                                                app:layout_constraintGuide_percent="0.8"
+                                                android:id="@+id/creditGuideV"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.8"
+            app:layout_constraintGuide_percent="0.9"
             android:id="@+id/detailGuideH"
     />
 
@@ -163,13 +163,19 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/detailGuideH"
             app:layout_constraintLeft_toRightOf="@id/detailGuideV"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toRightOf="@id/play"
             android:layout_marginStart="60dp"
-            android:layout_marginEnd="10dp"
             android:text="@string/more"
             android:id="@+id/more"
     />
-
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/detailMenuButton"
+            app:layout_constraintTop_toBottomOf="@+id/detailGuideH"
+            app:layout_constraintRight_toRightOf="@id/more"
+            android:text="@string/menuButton"
+    />
 
 
 

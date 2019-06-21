@@ -31,4 +31,7 @@
 
     <string name="picture_game_description">Picture of the game.</string>
     <string name="playable_description">Picture that show if the game is playable or not.</string>
+    <string name="emptyScore">There is no scores to be shown !</string>
+    <string name="menuButton">Return to game list</string>
+    <string name="allScores">All Scores</string>
 </resources>

@@ -6,21 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_credits.*
+import kotlinx.android.synthetic.main.fragment_return_to_menu.*
 
-class CreditsFragment : Fragment() {
+class returnToMenuFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_credits, container, false)
+        return inflater.inflate(R.layout.fragment_return_to_menu, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        scoreButton.setOnClickListener {
-            (activity as MainActivity).getScoreFragment("")
+        menuButton.setOnClickListener {
+            (activity as MainActivity).printListGame()
         }
     }
 }
