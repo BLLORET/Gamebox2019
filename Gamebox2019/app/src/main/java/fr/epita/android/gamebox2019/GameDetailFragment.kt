@@ -93,10 +93,17 @@ class GameDetailFragment : Fragment() {
         play.setOnClickListener {
             val name: String = editName.text.toString()
             if (!name.isEmpty()) {
+                if (nameObj.text == "Hangman") {
                 fragmentManager!!
                     .beginTransaction()
                     .replace(this@GameDetailFragment.id, HangmanPlayFragment.newInstance(name))
                     .commit()
+                } else if (nameObj.text == "SlidingPuzzle") {
+                    fragmentManager!!
+                        .beginTransaction()
+                        .replace(this@GameDetailFragment.id, PuzzlePlayFragment.newInstance(name))
+                        .commit()
+                }
             }
         }
         detailMenuButton.setOnClickListener {
