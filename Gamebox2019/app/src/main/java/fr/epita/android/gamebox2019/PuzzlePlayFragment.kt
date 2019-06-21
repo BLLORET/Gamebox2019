@@ -19,6 +19,18 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class PuzzlePlayFragment : Fragment() {
 
+    companion object {
+        fun newInstance(name: String): PuzzlePlayFragment{
+            val frag: PuzzlePlayFragment = PuzzlePlayFragment()
+            var bundle: Bundle = Bundle()
+            bundle.putString("playerName", name)
+
+            frag.arguments = bundle
+
+            return frag
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,35 +45,61 @@ class PuzzlePlayFragment : Fragment() {
         // Listeners for all images.
         imageView1.setOnClickListener {
             puzzleList.switchAndLoad(0, -1, 1, -1, 3)
-
+            if (puzzleList.isWin()) {
+                sendScore(true)
+            }
         }
         imageView2.setOnClickListener {
             puzzleList.switchAndLoad(1, 0, 2, -1, 4)
+            if (puzzleList.isWin()) {
+                sendScore(true)
+            }
         }
         imageView3.setOnClickListener {
             puzzleList.switchAndLoad(2, 1, -1, -1, 5)
+            if (puzzleList.isWin()) {
+                sendScore(true)
+            }
         }
         imageView4.setOnClickListener {
             puzzleList.switchAndLoad(3, -1, 4, 0, 6)
+            if (puzzleList.isWin()) {
+                sendScore(true)
+            }
         }
         imageView5.setOnClickListener {
             puzzleList.switchAndLoad(4, 3, 5, 1, 7)
+            if (puzzleList.isWin()) {
+                sendScore(true)
+            }
         }
         imageView6.setOnClickListener {
             puzzleList.switchAndLoad(5, 4, -1, 2, 8)
+            if (puzzleList.isWin()) {
+                sendScore(true)
+            }
         }
         imageView7.setOnClickListener {
             puzzleList.switchAndLoad(6, -1, 7, 3, -1)
+            if (puzzleList.isWin()) {
+                sendScore(true)
+            }
         }
         imageView8.setOnClickListener {
             puzzleList.switchAndLoad(7, 6, 8, 4, -1)
+            if (puzzleList.isWin()) {
+                sendScore(true)
+            }
         }
         imageView9.setOnClickListener {
             puzzleList.switchAndLoad(8, 7, -1, 5, -1)
+            if (puzzleList.isWin()) {
+                sendScore(true)
+            }
         }
     }
 
-    /*fun sendScore(win: Boolean) {
+    fun sendScore(win: Boolean) {
         val status: String = if (win) "win" else "loose"
         val id: Int = 9
 
@@ -77,26 +115,20 @@ class PuzzlePlayFragment : Fragment() {
         val callback = object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if (response.code() == 200) {
-                    Toast.makeText(activity, "Successfully recovered games detail", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Score successfully sent", Toast.LENGTH_SHORT).show()
 
-                    /* FIXME: redirect to score screen once it is done */
-                    fragmentManager!!
-                        .beginTransaction()
-                        .replace(this@HangmanPlayFragment.id, GameDetailFragment.Factory.newInstance(2, true))
-                        .commit()
-                    /* FIXME END*/
+                    (activity as MainActivity).getScoreFragment("SlidingPuzzle")
                 }
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
-                Toast.makeText(activity, "Failed to recover games list", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, "Failed to create score", Toast.LENGTH_LONG).show()
                 throw t
             }
-
         }
 
         val name: String = this.arguments!!.getString("playerName")!!
 
         service.sendScoreRequest(id, status, name).enqueue(callback)
-    }*/
+    }
 }
