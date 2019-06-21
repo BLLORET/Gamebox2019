@@ -8,16 +8,17 @@ class MainActivity : AppCompatActivity() {
     private fun printCredits() {
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.main_container, CreditsFragment())
+            .add(R.id.main_container, CreditsFragment())
             .commit()
     }
 
     fun printListGame() {
-        printCredits()
+
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.main_container, ListGameFragment())
+            .replace(R.id.main_container, ListGameFragment())
             .commit()
+        printCredits()
     }
 
     fun getDetailFragment(id: Int, playable: Boolean) {
