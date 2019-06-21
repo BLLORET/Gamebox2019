@@ -20,7 +20,6 @@ class returnToMenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         menuButton.setOnClickListener {
-            (activity as MainActivity).printCredits()
             (activity as MainActivity).printListGame()
         }
     }

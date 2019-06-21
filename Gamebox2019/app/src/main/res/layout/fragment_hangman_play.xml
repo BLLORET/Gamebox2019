@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.35"
+            app:layout_constraintGuide_percent="0.32"
             android:id="@+id/GuideV35"
     />
     <androidx.constraintlayout.widget.Guideline
@@ -32,6 +32,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50"
+            android:id="@+id/hangmanGuideMiddle"
+    />
+    <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             app:layout_constraintGuide_percent="0.65"
             android:id="@+id/GuideV65"
     />
@@ -39,14 +46,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.4"
+            app:layout_constraintGuide_percent="0.55"
             android:id="@+id/GuideH40"
     />
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65"
+        app:layout_constraintGuide_percent="0.8"
         android:id="@+id/GuideH65"
     />
 
@@ -74,17 +81,14 @@
             android:text="@string/triedLetters"
     />
 
-
-
-
     <!-- Hangman Letters -->
-
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/GuideH40"
             app:layout_constraintRight_toLeftOf="@id/GuideV35"
-            android:layout_marginEnd="1dp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginStart="2dp"
             android:text="@string/emptyLetter"
             android:textSize="40sp"
             android:id="@+id/l0"
@@ -93,8 +97,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/GuideH40"
-            app:layout_constraintLeft_toRightOf="@id/GuideV35"
-            android:layout_marginStart="1dp"
+            app:layout_constraintLeft_toRightOf="@id/l0"
+            android:layout_marginStart="2dp"
             android:text="@string/emptyLetter"
             android:textSize="40sp"
             android:id="@+id/l1"
@@ -103,8 +107,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/GuideH40"
-            app:layout_constraintRight_toLeftOf="@id/GuideV45"
-            android:layout_marginEnd="1dp"
+            app:layout_constraintLeft_toRightOf="@id/l1"
+            android:layout_marginStart="2dp"
             android:text="@string/emptyLetter"
             android:textSize="40sp"
             android:id="@+id/l2"
@@ -113,8 +117,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/GuideH40"
-            app:layout_constraintLeft_toRightOf="@id/GuideV45"
-            android:layout_marginStart="1dp"
+            app:layout_constraintLeft_toRightOf="@id/l2"
+            android:layout_marginStart="2dp"
             android:text="@string/emptyLetter"
             android:textSize="40sp"
             android:id="@+id/l3"
@@ -123,8 +127,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/GuideH40"
-            app:layout_constraintRight_toLeftOf="@id/GuideV55"
-            android:layout_marginEnd="1dp"
+            app:layout_constraintLeft_toRightOf="@id/l3"
+            android:layout_marginStart="2dp"
             android:text="@string/emptyLetter"
             android:textSize="40sp"
             android:id="@+id/l4"
@@ -133,8 +137,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/GuideH40"
-            app:layout_constraintLeft_toRightOf="@id/GuideV55"
-            android:layout_marginStart="1dp"
+            app:layout_constraintLeft_toRightOf="@id/l4"
+            android:layout_marginStart="2dp"
             android:text="@string/emptyLetter"
             android:textSize="40sp"
             android:id="@+id/l5"
@@ -143,8 +147,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/GuideH40"
-            app:layout_constraintRight_toLeftOf="@id/GuideV65"
-            android:layout_marginEnd="1dp"
+            app:layout_constraintLeft_toRightOf="@id/l5"
+            android:layout_marginStart="2dp"
             android:text="@string/emptyLetter"
             android:textSize="40sp"
             android:id="@+id/l6"
@@ -153,8 +157,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/GuideH40"
-            app:layout_constraintLeft_toRightOf="@id/GuideV65"
-            android:layout_marginStart="1dp"
+            app:layout_constraintLeft_toRightOf="@id/l6"
+            android:layout_marginStart="2dp"
             android:text="@string/emptyLetter"
             android:textSize="40sp"
             android:id="@+id/l7"
@@ -170,6 +174,7 @@
             app:layout_constraintBottom_toTopOf="@id/GuideH65"
             android:layout_marginBottom="5dp"
             android:textSize="40sp"
+            android:textAlignment="center"
             android:maxLength="1"
             android:background="@color/lightGray"
     />

@@ -15,10 +15,25 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.concurrent.schedule
+import kotlin.random.Random
 
 
 class HangmanPlayFragment : Fragment() {
+
+    val words: ArrayList<CharArray> = arrayListOf(
+        charArrayOf('T', 'A', 'B', 'O', 'U', 'R', 'E', 'T'),
+        charArrayOf('A', 'N', 'A', 'L', 'Y', 'S', 'E', 'S'),
+        charArrayOf('S', 'E', 'R', 'P', 'O', 'L', 'E', 'T'),
+        charArrayOf('A', 'N', 'N', 'U', 'A', 'I', 'R', 'E'),
+        charArrayOf('E', 'T', 'R', 'A', 'N', 'G', 'E', 'R'),
+        charArrayOf('L', 'A', 'N', 'G', 'A', 'G', 'E', 'S'),
+        charArrayOf('P', 'U', 'B', 'L', 'I', 'Q', 'U', 'E'),
+        charArrayOf('M', 'A', 'B', 'O', 'U', 'L', 'E', 'S'),
+        charArrayOf('M', 'O', 'L', 'E', 'S', 'T', 'E', 'R'),
+        charArrayOf('M', 'E', 'D', 'I', 'E', 'V', 'A', 'L')
+    )
 
     companion object {
         fun newInstance(name: String): HangmanPlayFragment{
@@ -42,8 +57,10 @@ class HangmanPlayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        val wordIdx: Int = Random.nextInt(10)
+
         /* FIXME: Get a real word */
-        var word: CharArray = charArrayOf('T', 'A', 'B', 'O', 'U', 'R', 'E', 'T')
+        var word: CharArray = words[wordIdx]
         var remainingTries: Int = 11
         remainingCount.text = getString(R.string.remainingTries) + " " + remainingTries.toString()
 
@@ -94,19 +111,6 @@ class HangmanPlayFragment : Fragment() {
             }
             tryLetter.text.clear()
         }
-
-        /* FIXME: Remove this 60 seconds timer and put it in sliding puzzle */
-        /*val timer = object: CountDownTimer(60000, 1024) {
-            override fun onFinish() {
-                sendScore(foundCount == 8)
-            }
-
-            override fun onTick(p0: Long) {
-                remainingTime -= 1
-                timerText.text = remainingTime.toString()
-            }
-        }
-        timer.start()*/
     }
 
     fun sendScore(win: Boolean) {
@@ -125,22 +129,16 @@ class HangmanPlayFragment : Fragment() {
         val callback = object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if (response.code() == 200) {
-                    Toast.makeText(activity, "Successfully recovered games detail", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Score successfully sent", Toast.LENGTH_SHORT).show()
 
-                    /* FIXME: redirect to score screen once it is done */
-                    fragmentManager!!
-                        .beginTransaction()
-                        .replace(this@HangmanPlayFragment.id, GameDetailFragment.Factory.newInstance(2, true))
-                        .commit()
-                    /* FIXME END*/
+                    (activity as MainActivity).getScoreFragment("Hangman")
                 }
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
-                Toast.makeText(activity, "Failed to recover games list", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, "Failed to create score", Toast.LENGTH_LONG).show()
                 throw t
             }
-
         }
 
         val name: String = this.arguments!!.getString("playerName")!!

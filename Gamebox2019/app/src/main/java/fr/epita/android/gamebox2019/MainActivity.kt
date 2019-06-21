@@ -22,13 +22,14 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    fun getScoreFragment() {
+    fun getScoreFragment(game: String) {
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.main_container, ScoreListFragment())
+            .replace(R.id.main_container, ScoreListFragment.newInstance(game))
             .add(R.id.main_container, returnToMenuFragment())
             .commit()
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -18,6 +18,18 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ScoreListFragment : Fragment() {
 
+    companion object Factory{
+        fun newInstance(game: String): ScoreListFragment {
+            val frag: ScoreListFragment = ScoreListFragment()
+            var bundle: Bundle = Bundle()
+            bundle.putString("game", game)
+
+            frag.arguments = bundle
+
+            return frag
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,11 +57,22 @@ class ScoreListFragment : Fragment() {
             }
 
             override fun onResponse(call: Call<MutableList<DScore>>, response: Response<MutableList<DScore>>) {
-
                 if (response.code() == 200) {
                     val data: MutableList<DScore>? = response.body()
                     if (data != null) {
-                        scoreList.adapter = ScoreListAdapter(activity as MainActivity, data)
+                        val gameName: String = arguments!!.getString("game")!!
+                        if (gameName.equals("")) {
+                            scoreList.adapter = ScoreListAdapter(activity as MainActivity, data)
+                        }
+                        else {
+                            val hangmanScores: MutableList<DScore> = arrayListOf()
+                            for (elt in data) {
+                                if (elt.game == gameName) {
+                                    hangmanScores.add(elt)
+                                }
+                            }
+                            scoreList.adapter = ScoreListAdapter(activity as MainActivity, hangmanScores)
+                        }
                     }
                 } else {
                     scoreList.emptyView = emptyScore
