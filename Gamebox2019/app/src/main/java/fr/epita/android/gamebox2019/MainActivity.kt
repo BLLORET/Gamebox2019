@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentManager
 class MainActivity : AppCompatActivity() {
 
     fun printListGame() {
-
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.main_container, ListGameFragment())

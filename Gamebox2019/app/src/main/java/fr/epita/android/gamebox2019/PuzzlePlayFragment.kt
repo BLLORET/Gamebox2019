@@ -2,6 +2,7 @@ package fr.epita.android.gamebox2019
 
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,66 +40,70 @@ class PuzzlePlayFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_puzzle_play, container, false)
     }
 
+    fun checkVictory(puzzleList: PuzzleList, timer: CountDownTimer) {
+        if (puzzleList.isWin()) {
+            timer.cancel()
+            sendScore(true)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         var puzzleList : PuzzleList = PuzzleList(view)
+        var remainingTime: Int = 60
+
+        val timer = object: CountDownTimer(60000, 1000) {
+            override fun onFinish() {
+                sendScore(false)
+            }
+
+            override fun onTick(p0: Long) {
+                remainingTime -= 1
+                timerText.text = remainingTime.toString()
+            }
+        }
+        timer.start()
 
         // Listeners for all images.
         imageView1.setOnClickListener {
             puzzleList.switchAndLoad(0, -1, 1, -1, 3)
-            if (puzzleList.isWin()) {
-                sendScore(true)
-            }
+            checkVictory(puzzleList, timer)
         }
         imageView2.setOnClickListener {
             puzzleList.switchAndLoad(1, 0, 2, -1, 4)
-            if (puzzleList.isWin()) {
-                sendScore(true)
-            }
+            checkVictory(puzzleList, timer)
         }
         imageView3.setOnClickListener {
             puzzleList.switchAndLoad(2, 1, -1, -1, 5)
-            if (puzzleList.isWin()) {
-                sendScore(true)
-            }
+            checkVictory(puzzleList, timer)
         }
         imageView4.setOnClickListener {
             puzzleList.switchAndLoad(3, -1, 4, 0, 6)
-            if (puzzleList.isWin()) {
-                sendScore(true)
-            }
+            checkVictory(puzzleList, timer)
+
         }
         imageView5.setOnClickListener {
             puzzleList.switchAndLoad(4, 3, 5, 1, 7)
-            if (puzzleList.isWin()) {
-                sendScore(true)
-            }
+            checkVictory(puzzleList, timer)
         }
         imageView6.setOnClickListener {
             puzzleList.switchAndLoad(5, 4, -1, 2, 8)
-            if (puzzleList.isWin()) {
-                sendScore(true)
-            }
+            checkVictory(puzzleList, timer)
         }
         imageView7.setOnClickListener {
             puzzleList.switchAndLoad(6, -1, 7, 3, -1)
-            if (puzzleList.isWin()) {
-                sendScore(true)
-            }
+            checkVictory(puzzleList, timer)
         }
         imageView8.setOnClickListener {
             puzzleList.switchAndLoad(7, 6, 8, 4, -1)
-            if (puzzleList.isWin()) {
-                sendScore(true)
-            }
+            checkVictory(puzzleList, timer)
         }
         imageView9.setOnClickListener {
             puzzleList.switchAndLoad(8, 7, -1, 5, -1)
-            if (puzzleList.isWin()) {
-                sendScore(true)
-            }
+            checkVictory(puzzleList, timer)
         }
 
         puzzle_back_menu.setOnClickListener {
+            timer.cancel()
             (activity as MainActivity).printListGame()
         }
     }
