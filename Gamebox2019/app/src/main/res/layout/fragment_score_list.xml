@@ -10,18 +10,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.90"
+            app:layout_constraintGuide_percent="0.92"
             android:id="@+id/BottomScoreGuide"
     />
 
     <ListView
             android:id="@+id/scoreList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toTopOf="@+id/BottomScoreGuide"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:divider="#2196F3"
             android:dividerHeight="1dp"
-    />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/BottomScoreGuide"/>
 
     <TextView
             android:id="@+id/emptyScore"
