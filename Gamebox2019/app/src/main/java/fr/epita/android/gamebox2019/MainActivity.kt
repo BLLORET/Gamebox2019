@@ -28,9 +28,17 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
+    fun playPuzzle() {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_container, PuzzlePlayFragment())
+            .commit()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        printListGame()
+        //printListGame()
+        playPuzzle()
     }
 }

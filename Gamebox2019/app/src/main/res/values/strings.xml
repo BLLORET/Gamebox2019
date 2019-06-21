@@ -23,7 +23,9 @@
     <string name="tryButton">TRY</string>
 
     <!-- Game List -->
-    <string name="empty_list">The list of games cannot be loaded because you are probably not connected on the internet or the server fail to respond.</string>
+    <string name="empty_list">The list of games cannot be loaded because you are probably not connected on the internet
+        or the server fail to respond.
+    </string>
     <string name="default_game">default</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
