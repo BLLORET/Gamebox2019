@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.GsonBuilder
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_list_game.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -60,9 +59,7 @@ class ListGameFragment : Fragment() {
                         list_games.setOnItemClickListener {
                                 adapterView, _, position, _ ->
                             var game : DGame = adapterView.getItemAtPosition(position) as DGame
-                            val playable : Boolean = (game.name == "Hangman" || game.name == "SlidingPuzzle")
-                            // To Remove in production, the true is to test the play game until data class bug is fixed.
-                            (activity as MainActivity).getDetailFragment(game.id/*, game.playable*/, playable)
+                            (activity as MainActivity).getDetailFragment(game.id, game.isPlayable())
                         }
                     }
                 } else {
