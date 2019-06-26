@@ -46,7 +46,7 @@ When the game is over, you can find your score at the bottom of the screen score
 
 - SliddingPuzzle (Difficulty: Hard)
 
-The puporse of this game is to rebuild the dog's image in 60 seconds otherwise, you will lose.
+The purpose of this game is to rebuild the dog's image in 60 seconds otherwise, you will lose.
 
 To recreate the dog, you have 9 cells that you have to replace. To move a cell, you must click on the cell next to the grey cell.
 This process will swap the 2 two cells.
