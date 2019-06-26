@@ -2,7 +2,12 @@ package fr.epita.android.gamebox2019
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentManager
+import fr.epita.android.gamebox2019.game.PuzzlePlayFragment
+import fr.epita.android.gamebox2019.menu.CreditsFragment
+import fr.epita.android.gamebox2019.menu.GameDetailFragment
+import fr.epita.android.gamebox2019.menu.ListGameFragment
+import fr.epita.android.gamebox2019.menu.returnToMenuFragment
+import fr.epita.android.gamebox2019.score.ScoreListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,17 +34,9 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    fun playPuzzle() {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.main_container, PuzzlePlayFragment())
-            .commit()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         printListGame()
-        //playPuzzle()
     }
 }

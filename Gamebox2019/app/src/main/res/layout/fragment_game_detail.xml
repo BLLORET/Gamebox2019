@@ -6,7 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".GameDetailFragment">
+        tools:context=".menu.GameDetailFragment">
 
     <androidx.constraintlayout.widget.Guideline
             android:layout_width="match_parent"
