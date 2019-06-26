@@ -42,7 +42,7 @@ First of all, you have to click on the grey square to make appear a keyboard. Af
 that you have found the word then click on the try button.
 If you've had wrong, the false letters that you have entered are displayed on the top of the scream and you number of tries decreases.
 
-When the game has finished, you can find your score on the bottom of the scream.
+When the game has finished, you can find your score at the bottom of the screen.
 
 - SliddingPuzzle
 
@@ -52,6 +52,6 @@ To rebuild the dog, you have 9 cell that you have to replace. To move a cell, yo
 This process will reverse the 2 two cells.
 You must continue this mechanism until that you obtain the dog. But be fast. you lose after 60 seconds if you don't obtain the dog.
 
-When the game has finished, you can find your score at the bottom of the scream.
+When the game has finished, you can find your score at the bottom of the screen.
 
 
